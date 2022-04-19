@@ -7,10 +7,10 @@ exports.crearProducto = async (req, res) => {
         let producto;
 
         // Creamos nuestro producto
-        producto = new Producto(req.body);
+        producto = new Producto(req.body); //solicitiud
 
         await producto.save();
-        res.send(producto);
+        res.send(producto);// parametro a enviar metodo send
         
     } catch (error) {
         console.log(error);
@@ -49,7 +49,7 @@ exports.actualizarProducto = async (req, res) => {
 
         producto = await Producto.findOneAndUpdate({ _id: req.params.id },producto, { new: true} )
         res.json(producto);
-        
+        console.log(producto);
     } catch (error) {
         console.log(error);
         res.status(500).send('Hubo un error');
@@ -68,6 +68,7 @@ exports.obtenerProducto = async (req, res) => {
        
         res.json(producto);
         
+
     } catch (error) {
         console.log(error);
         res.status(500).send('Hubo un error');

@@ -45,6 +45,7 @@ export class CrearProductoComponent implements OnInit {
       this._productoService.editarProducto(this.id, PRODUCTO).subscribe(data=>{
         this.toastr.info("El producto editado con exito","Producto actualizado");
         this.router.navigate(['/']);
+        console.log()
       })
     }else{
       //agregar producto

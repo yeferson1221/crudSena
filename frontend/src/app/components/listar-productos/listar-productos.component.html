@@ -4,6 +4,25 @@
             <div class="card">
                 <div class="card-body text-center">
                     <span class="titulo">INVENTARIO</span>
+                   
+
+                    <div class="row animated fadeIn fast">
+                      <div class="col-12">
+                          <div class="card">
+                              <div class="card-body">
+                                  
+                                  <input type="text"
+                                          class="form-control"
+                                          placeholder="Buscar Producto..."
+                                          #txtTermino
+                                          (keyup)="buscar(txtTermino.value)"/>
+                  
+                              </div>
+                          </div>
+                      </div>
+                  </div> 
+
+                    <br>
                     <div class="mb-3">
                       <button class="btn btn-info float-start" routerLink="/crear-producto">NUEVO</button>
                 <button class="btn btn-info float-end" (click)="generatePDF()">generarPDF</button>

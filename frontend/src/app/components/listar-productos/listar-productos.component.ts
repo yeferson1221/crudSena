@@ -17,7 +17,7 @@ export class ListarProductosComponent implements OnInit {
         private toastr: ToastrService) { }
 
   ngOnInit(): void {
-    this.obtenerProductos();
+    this.obtenerProductos()
   }
 
 
@@ -39,17 +39,23 @@ export class ListarProductosComponent implements OnInit {
     })
   }
   
-
   generatePDF(){
     const pdf = new PdfMakeWrapper();
     pdf.add(
       new Txt('producto.nombre').bold().italics().end
     );
     pdf.create().open();
-
     const pdf1 = new PdfMakeWrapper();
-
     pdf.userPassword('123');
+  }
+
+  buscar( termino: string ) {
+
+    
+    this._productoService.buscar( termino ).subscribe( data=> {
+      console.log("hola"+data)
+          this.listProductos = data;
+        });
   }
 
 }
